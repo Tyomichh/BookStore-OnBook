@@ -4,27 +4,26 @@ import Navigation from '../Components/Navigation';
 import Shop from './Shop';
 import AboutUs from './AboutUs';
 import './Home.scss';
+import Footer from '../Components/Footer';
 
 function Home() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-       <Navigation />
+      <Navigation />
+
       <Routes>
         <Route path="/" element={
           <main>
-            <section className="read">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </section>
+            
           </main>
         } />
         <Route path="/shop" element={<Shop />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
+
+      <Footer />
     </>
   )
 }
