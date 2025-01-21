@@ -56,7 +56,7 @@
     align-self: end;
     justify-self: end;
 
-    .cart_circle {
+    &_circle {
       position: relative;
       width: 50px;
       height: 50px;
@@ -72,13 +72,13 @@
         transform: scale(1.1);
         cursor: pointer;
       }
+    }
 
-      .cart_icon {
-        fill: var(--background-color) !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    &_icon {
+      fill: var(--background-color) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

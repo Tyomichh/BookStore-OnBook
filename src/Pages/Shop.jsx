@@ -6,7 +6,7 @@ function Shop() {
 
   return (
     <>
-      <main>
+      <main className='margin_b'>
         <section className='readk'>
           <div></div>
           <div></div>

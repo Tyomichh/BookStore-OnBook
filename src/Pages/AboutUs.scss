@@ -1,5 +1,58 @@
-.reads {
-    background-color: transparent;
-    height: 60vh;
-    width: 100px;
-  }
+.about_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  align-items: center;
+  width: 100%;
+}
+
+.section_title {
+  font-size: 72px;
+  max-width: 600px;
+  justify-self: start; 
+}
+
+.section_text {
+  font-size: 16px;
+  max-width: 400px;
+  justify-self: end; 
+}
+
+
+.about_container.reverse .section_title {
+  justify-self: end; 
+}
+
+.about_container.reverse .section_text {
+  justify-self: start; 
+}
+
+.full-width-image {
+  width: 100vw;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.image-mask {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about_card_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+

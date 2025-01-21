@@ -17,9 +17,9 @@ function Navigation() {
                         <FaSearch className="search_icon"/>
                         <input className="search_input" type="text" placeholder="Search book..."/>
                     </div>
-                    <span className="header_cart">
-                        <i className="cart_circle"><FaShoppingBag className="cart_icon"/></i>
-                    </span>   
+                    <button className="header_cart_circle">
+                        <FaShoppingBag className="header_cart_icon"/>
+                    </button>   
                 </div>
                 
         </header>

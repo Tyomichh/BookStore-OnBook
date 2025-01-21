@@ -9,7 +9,7 @@ function Footer() {
                 <div className="footer_nav_links">
 
                     <div className="footer_column">
-                        <h3 className="footer_column_title">Company</h3>
+                        <h4 className="footer_column_title">Company</h4>
 
                         <ul>
                             <li><a href="#our-number">Our number</a></li>
@@ -19,7 +19,7 @@ function Footer() {
                     </div>
 
                     <div className="footer_column">
-                        <h3 className="footer_column_title">User</h3>
+                        <h4 className="footer_column_title">User</h4>
 
                         <ul>
                             <li><a href="#basket">Basket</a></li>
@@ -27,7 +27,7 @@ function Footer() {
                     </div>
 
                     <div className="footer_column">
-                        <h3 className="footer_column_title">Follow us</h3>
+                        <h4 className="footer_column_title">Follow us</h4>
                         
                         <ul>
                             <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
@@ -40,7 +40,7 @@ function Footer() {
 
                 <form className="footer_form" action="#">
 
-                    <h3 className="footer_column_title">Contact us</h3>
+                    <h4 className="footer_column_title">Contact us</h4>
 
                     <input type="email" placeholder="Enter your email" required />
                     <button type="submit">Send Email</button>
