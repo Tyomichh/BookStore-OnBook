@@ -1,30 +1,55 @@
 .about_card {
     display: flex;
-    flex-direction: column; /* Об'єкти розташовані зверху до низу */
-    align-items: center; /* Вирівнювання по центру */
+    flex-direction: column; 
+    align-items: center; 
+
+    &_image {
+        width: 234px;
+        height: 334px;
+        border-radius: 22px;
+        overflow: hidden; 
+        margin-bottom: 48px;
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.08);
+      }
+    }
+    
+    &_content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px; 
+        text-align: center; 
+    }
   }
   
-  .about_card_image {
-    width: 234px;
-    height: 334px;
-    border-radius: 22px;
-    overflow: hidden; /* Щоб зображення не виходило за межі контейнера */
-    margin-bottom: 40px; /* Відстань до about_card_content */
-  }
-  
-  .about_card_content {
-    display: flex;
-    flex-direction: column; /* Текстові елементи розташовані вертикально */
-    gap: 8px; /* Відстань між текстом */
-    text-align: center; /* Вирівнювання тексту по центру */
-  }
-  
-  .worker_name {
+.worker {
+  &_name {
     font-size: 20px;
   }
-  
-  .worker_position {
+
+  &_position {
     font-size: 20px;
-    color: var(--graphite-50-color); /* Колір для позиції */
+    color: var(--graphite-50-color); 
   }
+}
   
+@media (max-width: 800px) {
+  .about_card {
+    &_image {
+      margin-bottom: 28px; 
+    }
+  }
+
+  .worker {
+    &_name {
+      font-size: 16px;
+    }
+    
+    &_position {
+      font-size: 16px;
+      color: var(--graphite-50-color); 
+    }
+  }
+}

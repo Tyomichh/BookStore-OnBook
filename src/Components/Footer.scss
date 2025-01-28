@@ -58,7 +58,7 @@
         }
     
         & button {
-            background-color: #0C1220;
+            background-color: var(--section-background-color);
             color: white;
             border: none;
             height: 52px;
@@ -84,15 +84,35 @@
         &_nav {
             grid-template-columns: 1fr;
             grid-template-rows: auto auto;
-            gap: 16px;
+            gap: 12px;
         }
 
         &_column {
             text-align: center;
+
+            &_title {
+                font-size: 16px;
+            }
+
+            ul {
+                gap: 8px;
+            }
         }
 
         &_form {
             justify-self: center;
+
+            & input {
+                font-size: 14px;
+    
+                &::placeholder {
+                    font-size: 12px;
+                }
+            }
+
+            & button {
+                font-size: 14px;
+            }
         }
     }
   }

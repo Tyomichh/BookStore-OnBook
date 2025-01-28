@@ -3,13 +3,10 @@ import "./Footer.scss";
 function Footer() {
     return (
         <footer className="footer">
-
             <div className="footer_nav">
-
                 <div className="footer_nav_links">
-
                     <div className="footer_column">
-                        <h4 className="footer_column_title">Company</h4>
+                        <h3 className="footer_column_title">Company</h3>
 
                         <ul>
                             <li><a href="#our-number">Our number</a></li>
@@ -19,7 +16,7 @@ function Footer() {
                     </div>
 
                     <div className="footer_column">
-                        <h4 className="footer_column_title">User</h4>
+                        <h3 className="footer_column_title">User</h3>
 
                         <ul>
                             <li><a href="#basket">Basket</a></li>
@@ -27,7 +24,7 @@ function Footer() {
                     </div>
 
                     <div className="footer_column">
-                        <h4 className="footer_column_title">Follow us</h4>
+                        <h3 className="footer_column_title">Follow us</h3>
                         
                         <ul>
                             <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
@@ -35,26 +32,19 @@ function Footer() {
                             <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                         </ul>
                     </div>
-
                 </div>
 
                 <form className="footer_form" action="#">
-
-                    <h4 className="footer_column_title">Contact us</h4>
+                    <h3 className="footer_column_title">Contact us</h3>
 
                     <input type="email" placeholder="Enter your email" required />
                     <button type="submit">Send Email</button>
-
                 </form>
-
             </div>
 
             <h1 className="logo_footer">On.Book</h1>
-
         </footer>
-
     )
 }
-
 
 export default Footer
