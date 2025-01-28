@@ -1,4 +1,4 @@
-.about_card {
+.worker_card {
     display: flex;
     flex-direction: column; 
     align-items: center; 
@@ -35,7 +35,7 @@
   }
 }
   
-@media (max-width: 800px) {
+@media (max-width: 760px) {
   .about_card {
     &_image {
       margin-bottom: 28px; 

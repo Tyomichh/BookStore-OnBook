@@ -24,6 +24,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   overflow-x: hidden;
+  padding: 0 20px;
 }
 
 img {
@@ -55,13 +56,13 @@ button {
   border: none;
 }
 
-@media (max-width: 1460px) {
+@media (max-width: 1440px) {
   body {
     max-width: 1024px; 
   }
 }
 
-@media (max-width: 1044px) {
+@media (max-width: 1024px) {
   body {
     max-width: 780px; 
   }
@@ -71,7 +72,7 @@ button {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 760px) {
   body {
     max-width: 360px; 
     font-size: 14px;

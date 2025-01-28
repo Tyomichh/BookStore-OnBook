@@ -1,11 +1,9 @@
 .author {
-    &_wrapper {
         display: flex;
         flex-shrink: 0;
         align-items: center;
         min-width: 694px;
         gap: 32px;
-    }
 
     &_info {
         display: flex;
@@ -15,8 +13,6 @@
         gap: 20px;
         border-left: 2px solid var(--body-background-50-color);
         padding-left: 32px;
-        
-        //max-height:fit-content;
 
         &_wrapper {
 
@@ -36,7 +32,7 @@
         }
     }
 
-    &_image_wrapper {
+    &_image {
         width: 274px;
         height: 320px;
         border-bottom-left-radius: 164px;

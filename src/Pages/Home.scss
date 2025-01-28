@@ -30,7 +30,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 
-    & > .author_wrapper:first-of-type .author_info {
+    & > .author:first-of-type .author_info {
         border-bottom: 2px solid var(--body-background-50-color);
     }
 }

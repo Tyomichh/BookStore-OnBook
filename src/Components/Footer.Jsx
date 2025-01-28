@@ -1,4 +1,5 @@
-import "./Footer.scss";
+// 4. Стилі
+import './Footer.scss';
 
 function Footer() {
     return (

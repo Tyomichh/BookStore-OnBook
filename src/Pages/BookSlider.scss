@@ -1,0 +1,32 @@
+.book-card {
+    width: 120px;
+    height: 200px;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px 60px 0 0;
+    text-align: center;
+  }
+  
+  .inverted {
+    transform: rotate(180deg);
+    border-radius: 0 0 60px 60px;
+  }
+  
+  .manual-slider {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .active {
+    opacity: 1;
+  }
+  
+  .book-card p {
+    margin: 5px 0;
+  }
+  

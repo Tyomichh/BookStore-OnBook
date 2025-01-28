@@ -1,9 +1,10 @@
-import "./AuthorCard.scss";
+// 4. Стилі
+import './AuthorCard.scss';
 
 function AuthorCard({ name, about, photo }) {
 
     return (
-            <div className="author_wrapper">
+            <div className="author">
 
                 <div className="author_info">
                     <div className="author_info_wrapper">
@@ -17,7 +18,7 @@ function AuthorCard({ name, about, photo }) {
                     </div>
                 </div>
 
-                <div className="author_image_wrapper">
+                <div className="author_image">
                     <img src={photo} alt={`${name}'s photo`}/>
                 </div>
             </div>   

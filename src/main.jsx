@@ -1,8 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+// 1. Бібліотеки
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import './index.scss'
-import Home from './Pages/Home.jsx'
+// 2. Компоненти
+import Home from './Pages/Home.jsx';
+// 4. Стилі
+import './index.scss';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -1,17 +1,31 @@
-import { Routes, Route } from "react-router-dom";
+// 1. Бібліотеки
+import { Routes, Route } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
-import Navigation from "../Components/Navigation";
-import Footer from "../Components/Footer";
-import AuthorCard from "../Components/AuthorCard";
-import OffersCard from "../Components/OffersCard";
-import Button from "../Components/ButtonComponent";
-import authors from "../data/authorsData";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+// 2. Компоненти
+import Navigation from '../Components/Navigation';
+import Footer from '../Components/Footer';
+import AuthorCard from '../Components/AuthorCard';
+import OffersCard from '../Components/OffersCard';
+import Button from '../Components/ButtonComponent';
 import AboutUs from './AboutUs';
-import Shop from './Shop';
+import Shop from './Shop';  
+// 3. Дані
+import authors from '../data/authorsData';
+// 4. Стилі
 import './Home.scss';
+import './BookSlider.scss';
+
 
 
 function Home() {
+
+  const books = [
+    { id: 1, author: "Author 1", title: "Book 1" },
+    { id: 2, author: "Author 2", title: "Book 2" },
+    { id: 3, author: "Author 3", title: "Book 3" },
+  ];
 
   return (
     <>
@@ -29,6 +43,17 @@ function Home() {
               </div>
               
               <div>
+
+                <Swiper slidesPerView={3} spaceBetween={20} centeredSlides loop>
+                  {books.map((book, index) => (
+                    <SwiperSlide key={book.id}>
+                      <div className={`book-card ${index === 1 ? "inverted" : ""}`}>
+                        <p>{book.author}</p>
+                        <p>{book.title}</p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
               </div>
             </section>
