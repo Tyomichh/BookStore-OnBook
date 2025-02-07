@@ -1,9 +1,9 @@
 .author {
-        display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        min-width: 694px;
-        gap: 32px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    min-width: 694px;
+    gap: 32px;
 
     &_info {
         display: flex;
@@ -12,7 +12,7 @@
         justify-content: center;
         gap: 20px;
         border-left: 2px solid var(--body-background-50-color);
-        padding-left: 32px;
+        padding: 0 0 24px 32px;
 
         &_wrapper {
 

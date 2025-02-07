@@ -1,0 +1,40 @@
+.offers {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    p {
+        font-size: 20px;
+        width: 50%;
+        text-align: center;
+    }
+    
+    &_wrapper {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    width: 338px;
+    height: 394px;
+    border-radius: 0 0 174px 174px;
+    overflow: hidden;
+
+        &.central {
+            border-radius: 174px 174px 0 0;
+        }
+    }
+
+    &_image_group {
+        display: flex;
+        height: 197px;
+
+        img {
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+        }
+    }
+
+}

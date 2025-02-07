@@ -5,6 +5,7 @@
   --graphite-75-color: #171717bd;
   --graphite-50-color: #1717177c;
   --section-background-color: #0C1220;
+  --swiper-theme-color: #171717;
 }
 
 /* Глобальні стилі */
@@ -56,6 +57,36 @@ button {
   border: none;
 }
 
+/* Стилі для секцій*/
+
+.section {
+  &_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+    width: 100%;
+
+    & > *:nth-child(2) {
+      justify-self: end; 
+    }
+  } 
+
+  &_title {
+    font-size: 72px;
+    max-width: 600px;
+    margin-bottom: 60px;
+
+    &.no_margin {
+      margin-bottom: 0;
+    }
+  }
+
+  &_text {
+    font-size: 16px;
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 1440px) {
   body {
     max-width: 1024px; 
@@ -70,11 +101,54 @@ button {
   header, main, section {
     margin-bottom: 100px;
   }
+
+  .section {
+    &_wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+      width: 100%;
+      gap: 12px;
+      justify-content: center;
+
+      & > *:nth-child(2) {
+        justify-self: center; 
+      }
+
+      &:nth-of-type(3) > *:nth-child(1) {
+        order: 2;
+      }
+
+      &:nth-of-type(3) > *:nth-child(2) {
+        order: 1;
+      }
+    }
+
+    &_title {
+      max-width: fit-content;
+      justify-self: center;
+      text-align: center;
+    }
+
+    &_text {
+      justify-self: center;
+      text-align: center;
+    }
+  }
+  
 }
 
 @media (max-width: 760px) {
   body {
     max-width: 360px; 
+    font-size: 14px;
+  }
+
+  .section_title {
+    font-size: 48px;
+  }
+  
+  .section_text {
     font-size: 14px;
   }
 }

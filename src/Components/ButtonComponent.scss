@@ -1,16 +1,16 @@
-.buttonComponent_styles {        
+.buttonComp_styles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 184px;
     height: 52px;
-    justify-self: center;
-    margin-top: 42px;
     font-family: "Inria Serif", sans-serif;
-    font-size: 16px;
+    color: var(--graphite-100-color);
     background-color: transparent;
     border: 1px solid var(--graphite-100-color);
-    color: var(--graphite-100-color);
     cursor: pointer;
     transition: transform 0.5s ease;
-    
+
     &:hover {
         transform: scale(1.05);
     }

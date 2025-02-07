@@ -1,0 +1,48 @@
+.worker {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+
+  &_image {
+    width: 234px;
+    height: 334px;
+    border-radius: 22px;
+    overflow: hidden; 
+    margin-bottom: 48px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+    
+  &_content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    text-align: center; 
+  }
+
+  .name {
+    font-size: 20px;
+  }
+  
+  .position {
+    font-size: 20px;
+    color: var(--graphite-50-color); 
+  }
+}
+  
+@media (max-width: 760px) {
+
+  .worker {
+    .name {
+      font-size: 16px;
+    }
+    
+    .position {
+      font-size: 16px;
+      color: var(--graphite-50-color); 
+    }
+  }
+}
