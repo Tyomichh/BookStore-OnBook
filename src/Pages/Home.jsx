@@ -23,6 +23,7 @@ import 'swiper/css/pagination';
 
 function Home() {
   const [books, setBooks] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 760);
 
   const truncateText = (text, length) => {
     return text && text.length > length ? text.slice(0, length) + '...' : text;
@@ -62,6 +63,15 @@ function Home() {
   }, []);
 
   console.log("Total books loaded:", books.length);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 760);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   
   return (
     <>
@@ -76,17 +86,17 @@ function Home() {
                 <h2 className="no_margin section_title">Find Your Next Book</h2>
 
                 <p className="section_text">Discover stories that inspire, entertain, and stay with you — find your next favorite book today!</p>
-                <Button text="Explore Now" bgcolor="var(--graphite-100-color)" color="var(--body-background-color)" border="none" margin="0 0 0 0" linkTo="/about-us" scrollTo="target-section" />
+                <Button text="Explore Now" linkTo="/about-us" className="btn-primary" scrollTo="target-section" />
               </div>
               
-              <Swiper modules={[Pagination, Autoplay]} pagination={{ clickable: true }} loop={true} slidesPerView={1} direction="vertical" 
+              <Swiper modules={isMobile ? [Autoplay] : [Pagination, Autoplay]} pagination={!isMobile ? { clickable: true } : false} loop={true} slidesPerView={1} direction="vertical" 
               autoplay={{ delay: 5000, disableOnInteraction: false }} speed={1000} className="content_carousel">
                 
                 {[0, 1, 2].map((index) => (
                   <SwiperSlide key={index}>
                     <div className="content_wrapper">
-                      {books.slice(index * 3, index * 3 + 3).map((book, i) => (
-                        <BookItem key={book.id} author={book.author} title={book.title} photo={book.photo} isCentral={i % 2 !== 0}/>
+                    {books.slice(index * (isMobile ? 2 : 3), index * (isMobile ? 2 : 3) + (isMobile ? 2 : 3)).map((book, i) => (
+                        <BookItem key={book.id} author={book.author} title={book.title} photo={book.photo} isCentral={!isMobile && i % 2 !== 0}/>
                       ))}
                     </div>
                   </SwiperSlide>
@@ -129,7 +139,7 @@ function Home() {
                   ))}
                 </div>
                 
-                <Button text="See More" margin="42px 0 0 0" justify="center" linkTo="/shop"/>
+                <Button text="See More" className="btn-secondary" linkTo="/shop"/>
               </div>
             </section>
 

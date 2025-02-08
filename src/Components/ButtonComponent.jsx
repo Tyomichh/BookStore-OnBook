@@ -1,10 +1,10 @@
 // 1. Бібліотеки
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // 4. Стилі
 import '../Components/ButtonComponent.scss';
 
-function ButtonComponent ({linkTo, scrollTo, bgcolor, color, border, margin, justify, text,}) {
+function ButtonComponent ({linkTo, scrollTo, className, text}) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -24,7 +24,7 @@ function ButtonComponent ({linkTo, scrollTo, bgcolor, color, border, margin, jus
   };
 
   return (
-    <a className="buttonComp_styles" style={{ backgroundColor: bgcolor, color: color, border: border, margin: margin, justifySelf: justify }} onClick={handleClick}>
+    <a className={`buttonComp_styles ${className}`}  onClick={handleClick}>
       {text}
     </a>
   );

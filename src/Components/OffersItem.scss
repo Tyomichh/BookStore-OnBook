@@ -14,7 +14,7 @@
     &_wrapper {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    width: 338px;
+    width: 320px;
     height: 394px;
     border-radius: 0 0 174px 174px;
     overflow: hidden;
@@ -37,4 +37,10 @@
         }
     }
 
+}
+
+@media (max-width: 760px) {
+    .offers {
+      gap: 24px;
+    }
 }

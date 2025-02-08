@@ -4,14 +4,40 @@
     align-items: center;
     width: 184px;
     height: 52px;
-    font-family: "Inria Serif", sans-serif;
-    color: var(--graphite-100-color);
-    background-color: transparent;
-    border: 1px solid var(--graphite-100-color);
     cursor: pointer;
     transition: transform 0.5s ease;
 
     &:hover {
         transform: scale(1.05);
+    }
+}
+
+.btn{
+
+    &-primary {
+        justify-self: flex-start;
+        color: var(--text-white-color);
+        background-color: var(--graphite-100-color);
+        border: none;
+    }
+  
+    &-secondary {
+        justify-self: center;
+        margin-top: 42px;
+        color: var(--graphite-100-color);
+        background-color: transparent;
+        border: 1px solid var(--graphite-100-color);
+    }
+}
+  
+@media (max-width: 1024px) {
+    .btn-primary {
+      justify-self: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .btn-secondary {
+      margin-top: 24px;
     }
 }
