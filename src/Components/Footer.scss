@@ -27,6 +27,15 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+
+            button {
+                font-size: 16px;
+                background-color: var(--body-background-color);
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 
@@ -37,6 +46,7 @@
         justify-self: self-end;
         max-width: 285px;
         width: 100%;
+        transition: all 0.6s ease;
 
         & input {
             background-color: transparent;
@@ -76,6 +86,63 @@
     }
 }
 
+.error {
+    color: red;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.popup {
+    &_overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vw;
+        background-color: var(--graphite-50-color);
+        z-index: 100;
+    }
+
+    &_number {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--body-background-color);
+        border-radius: 25px 25px ;
+        font-size: 24px;
+        padding: 32px;
+        z-index: 1000;
+    }
+}
+
+.blink {
+    animation: blinkAnimation 0.6s ease;
+}
+
+@keyframes blinkAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.03);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 @media (max-width: 760px) {
     .footer{
         gap: 40px;
@@ -95,6 +162,10 @@
 
             ul {
                 gap: 8px;
+
+                button {
+                    font-size: 14px;
+                }
             }
         }
 

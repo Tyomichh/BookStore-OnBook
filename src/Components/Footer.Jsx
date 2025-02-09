@@ -1,7 +1,73 @@
+// 1. Бібліотеки
+import emailjs from 'emailjs-com';
+import { useState, useEffect, useRef } from 'react';
 // 4. Стилі
 import './Footer.scss';
 
 function Footer() {
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
+
+    const [NumberPopup, setNumberPopup] = useState(false);
+    const popupRef = useRef(null); 
+
+    const [blink, setBlink] = useState(false);
+
+    // Перевірка емейлу
+    const validateEmail = (email) => {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // Обробка форми
+    const SubmitEmail = (e) => {
+        e.preventDefault();
+
+        // Перевірка валідації
+        if (!validateEmail(email)) {
+            setError('Please enter a valid email');
+            return;
+        }
+
+        setError('');
+
+        // Відправка за допомогою EmailJS
+        const templateParams = {
+            email: email,
+            message: `Користувачеві ${email} потрібна ваша допомога, відгукніться якомога скоріше`
+        };
+
+        emailjs.send('service_34nm607', 'template_yo6x009', templateParams, 'MXdPw0RltTVuCF7fu')
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Your message has been sent!');
+                setEmail(''); 
+            }, (err) => {
+                console.log('FAILED...', err);
+                alert('Failed to send the message, please try again.');
+            });
+    };
+
+    // Закриваємо віконечко при кліку поза ним
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (popupRef.current && !popupRef.current.contains(event.target)) {
+                setNumberPopup(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    // Функція активації блимання
+    const handleContactClick = () => {
+        setBlink(true);
+        setTimeout(() => setBlink(false), 600);
+    };
+
     return (
         <footer className="footer">
             <div className="footer_nav">
@@ -10,9 +76,9 @@ function Footer() {
                         <h3 className="footer_column_title">Company</h3>
 
                         <ul>
-                            <li><a href="#our-number">Our number</a></li>
-                            <li><a href="#about-us">About us</a></li>
-                            <li><a href="#contact-us">Contact us</a></li>
+                            <li><button onClick={() => setNumberPopup(!NumberPopup)}>Our number</button></li>
+                            <li><a href="/about-us">About us</a></li>
+                            <li><button onClick={handleContactClick}>Contact us</button></li>
                         </ul>
                     </div>
 
@@ -21,6 +87,7 @@ function Footer() {
 
                         <ul>
                             <li><a href="#basket">Basket</a></li>
+                            <li><a href="/shop">Shop</a></li>
                         </ul>
                     </div>
 
@@ -35,15 +102,26 @@ function Footer() {
                     </div>
                 </div>
 
-                <form className="footer_form" action="#">
+                <form className={`footer_form ${blink ? 'blink' : ''}`} action="#" onSubmit={SubmitEmail}>
                     <h3 className="footer_column_title">Contact us</h3>
 
-                    <input type="email" placeholder="Enter your email" required />
+                    <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                    {error && <p className="error">{error}</p>}
                     <button type="submit">Send Email</button>
                 </form>
             </div>
 
-            <h1 className="logo_footer">On.Book</h1>
+            <a href="/" className="logo logo_footer">On.Book</a>
+
+            {NumberPopup && (
+                <>
+                    <div className="popup_overlay" onClick={() => setNumberPopup(false)}></div>
+
+                    <div className="popup_number" ref={popupRef}>
+                        <p><b>Our contact number:</b> +098 012 65 79</p>
+                    </div>
+                </>  
+            )}
         </footer>
     )
 }

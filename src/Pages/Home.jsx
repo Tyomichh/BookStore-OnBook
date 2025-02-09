@@ -25,6 +25,7 @@ function Home() {
   const [books, setBooks] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 760);
 
+  // Обрізка тексту
   const truncateText = (text, length) => {
     return text && text.length > length ? text.slice(0, length) + '...' : text;
   };
@@ -51,7 +52,7 @@ function Home() {
           photo: item.cover_i ? `https://covers.openlibrary.org/b/id/${item.cover_i}-L.jpg` : null,
         }));
   
-        // Фільтруємо книги без необхідних даних та беремо потрібну кількість
+        // Фільтруємо книги без необхідних даних
         const validBooks = booksData.filter(book => book.title && book.author && book.photo).slice(0, 40);
         setBooks(validBooks);
       } catch (error) {
@@ -64,6 +65,7 @@ function Home() {
 
   console.log("Total books loaded:", books.length);
 
+  // Відстеження зміни розміру вікна
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 760);
