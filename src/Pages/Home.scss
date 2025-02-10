@@ -1,8 +1,3 @@
-.intro_box {
-  display: grid;
-  gap: 42px;
-}
-
 .content {
   &_carousel {
     width: 600px;
@@ -133,8 +128,10 @@
     }
   }
 
-  .author_conteiner {
-    width: calc(100vw - ((100vw - 984px) / 2));
+  .author{
+    &_conteiner {
+      width: calc(100vw - ((100vw - 984px) / 2));
+    }
   }
 }
 
@@ -160,8 +157,10 @@
     }
   }
 
-  .author_conteiner {
-    width: calc(100vw - ((100vw - 720px) / 2));
+  .author{
+    &_conteiner {
+      width: calc(100vw - ((100vw - 740px) / 2));
+    }
   }
 }
 
@@ -209,7 +208,15 @@
     }
   }
 
-  .author_conteiner {
+  .author{
+    min-width: 555px;
+
+    &_conteiner {
     width: calc(100vw - ((100vw - 320px) / 2));
+    }
+
+    &_background_line{
+      height: 240px;
+    }
   }
 }

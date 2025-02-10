@@ -1,0 +1,84 @@
+.book {
+  &_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 212px;
+    min-height: 412px;
+
+    &:hover .book_card_content {
+      max-height: fit-content;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &_image {
+    width: 212px;
+    height: 316px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--graphite-100-color);
+    transition: transform 0.5s ease;
+  }
+
+  &_card_content {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    padding: 12px 12px 0 12px;
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+
+
+    & button {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      background-color: var(--body-background-color);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+
+    
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--graphite-100-color);
+      }
+    
+      &::before {
+        width: 14px;
+        height: 2px;
+      }
+    
+      &::after {
+        width: 2px;
+        height: 14px;
+      }
+    }
+    
+  }
+}

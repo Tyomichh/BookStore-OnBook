@@ -8,6 +8,10 @@
   --swiper-theme-color: #171717;
   --text-white-color: #ffffff;
   --text-white-50-color: #ffffff80;
+  --color-line-1: #91A3C6;
+  --color-line-2: #2A4164;
+  --color-line-3: #141929;
+  --color-line-5: #252525;
 }
 
 /* Глобальні стилі */
@@ -60,7 +64,7 @@ button {
   border: none;
 }
 
-/* Стилі для секцій*/
+/* Стилі */
 
 .section {
   &_wrapper {
@@ -88,6 +92,11 @@ button {
     font-size: 16px;
     max-width: 400px;
   }
+}
+
+.intro_box {
+  display: grid;
+  gap: 42px;
 }
 
 @media (max-width: 1440px) {
