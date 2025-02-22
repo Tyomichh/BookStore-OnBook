@@ -1,10 +1,4 @@
 .about {
-
-  &_card_wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-  
   &_long {
     width: 100vw;
     height: 500px;
@@ -17,29 +11,10 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .about {
-
-    &_card_wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      row-gap: 88px;
-    }
-
-  }
-  
-}
 
 @media (max-width: 760px) {
 
   .about {
-    &_card_wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      margin-top: 48px;
-      row-gap: 32px;
-    }
-
     &_long {
       height: 400px;
     }

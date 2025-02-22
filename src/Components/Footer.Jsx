@@ -1,16 +1,25 @@
 // 1. Бібліотеки
 import emailjs from 'emailjs-com';
 import { useState, useEffect, useRef } from 'react';
+// 2. Компоненти
+import { useScroll } from "../context/scrollProvider";
+// 3. Дані
 // 4. Стилі
 import './Footer.scss';
 
 function Footer() {
+    // Скрол до елемента
+    const { handleClick } = useScroll();
+    
+    // Змінна для зберігання значення email та помилки
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
+    // Керування відображенням попапа
     const [NumberPopup, setNumberPopup] = useState(false);
     const popupRef = useRef(null); 
 
+    // Відстеження стану блимання
     const [blink, setBlink] = useState(false);
 
     // Перевірка емейлу
@@ -68,6 +77,9 @@ function Footer() {
         setTimeout(() => setBlink(false), 600);
     };
 
+    console.log("Footer is rendering");
+
+
     return (
         <footer className="footer">
             <div className="footer_nav">
@@ -86,7 +98,7 @@ function Footer() {
                         <h3 className="footer_column_title">User</h3>
 
                         <ul>
-                            <li><a href="#basket">Basket</a></li>
+                            <li><a href="#basket" onClick={() => handleClick("", "basketID")}>Basket</a></li>
                             <li><a href="/shop">Shop</a></li>
                         </ul>
                     </div>
@@ -111,7 +123,7 @@ function Footer() {
                 </form>
             </div>
 
-            <a href="/" className="logo logo_footer">On.Book</a>
+            <a href="#header" className="logo logo_footer" onClick={() => handleClick("", "headerID")} >On.Book</a>
 
             {NumberPopup && (
                 <>

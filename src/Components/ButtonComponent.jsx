@@ -1,30 +1,14 @@
 // 1. Бібліотеки
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// 2. Компоненти
+// 3.Дані
 // 4. Стилі
 import '../Components/ButtonComponent.scss';
 
-function ButtonComponent ({linkTo, scrollTo, className, text}) {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    
-    if (linkTo) {
-      navigate(linkTo);
-
-      if (scrollTo) {
-        setTimeout(() => {
-          const targetElement = document.getElementById(scrollTo);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 500);
-      }
-    }
-  };
+function ButtonComponent ({className, text, onClick}) {
 
   return (
-    <a className={`buttonComp_styles ${className}`}  onClick={handleClick}>
+    <a className={`buttonComp_styles ${className}`}  onClick={onClick}>
       {text}
     </a>
   );

@@ -1,3 +1,6 @@
+// 1. Бібліотеки
+// 2. Компоненти
+// 3.Дані
 // 4. Стилі
 import './BookItem.scss';
 
@@ -10,12 +13,9 @@ function BookItem ({ photo, author, title, isCentral }) {
         </div>
 
         <div className={`book_item_text ${isCentral ? "top" : ""}`}>
-        <p>
-          {author}
-        </p>
-        <p>
-          {title} 
-        </p>
+          <p> {author} </p>
+          
+          <p> {title} </p>
         </div>
       </div>
     );

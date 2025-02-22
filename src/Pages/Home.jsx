@@ -1,18 +1,14 @@
 // 1. Бібліотеки
 import { useEffect, useState } from "react";
-import { Routes, Route } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from "swiper/modules";
 import axios from 'axios';
 // 2. Компоненти
-import Navigation from '../Components/Navigation';
-import Footer from '../Components/Footer';
 import AuthorCard from '../Components/AuthorCard';
 import OffersItem from '../Components/OffersItem';
 import Button from '../Components/ButtonComponent';
 import BookItem from '../Components/BookItem';
-import AboutUs from './AboutUs';
-import Shop from './Shop';  
+import { useScroll } from "../context/scrollProvider";
 // 3. Дані
 import authors from '../data/authorsData';
 // 4. Стилі
@@ -21,25 +17,23 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-function Home() {
+function Home({truncateText}) {
+  // Скрол до елемента
+  const { handleClick } = useScroll();
+
+  // Стан для книг та розміру вікна
   const [books, setBooks] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 760);
-
-  // Обрізка тексту
-  const truncateText = (text, length) => {
-    return text && text.length > length ? text.slice(0, length) + '...' : text;
-  };
   
+  // Завантаження списку книг
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get('https://openlibrary.org/search.json', {
           params: {
             subject: 'detective',
-            //author: '',
             limit: 40, 
             sort: 'editions', 
-            //first_publish_year: 2008,
             language: 'eng',
             title: 'dark' 
           }
@@ -63,8 +57,6 @@ function Home() {
     fetchBooks();
   }, []);
 
-  console.log("Total books loaded:", books.length);
-
   // Відстеження зміни розміру вікна
   useEffect(() => {
     const handleResize = () => {
@@ -74,21 +66,17 @@ function Home() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  
-  return (
-    <>
-      <Navigation />
-      <Routes>
 
-        <Route path="/" element={
-          <main>
-            
-            <section className="section_wrapper">
+  console.log("Total books loaded:", books.length);
+
+  return (
+    <main> 
+      <section className="section_wrapper">
               <div className="intro_box">
                 <h2 className="no_margin section_title">Find Your Next Book</h2>
 
                 <p className="section_text">Discover stories that inspire, entertain, and stay with you — find your next favorite book today!</p>
-                <Button text="Explore Now" linkTo="/about-us" className="btn-primary" scrollTo="target-section" />
+                <Button text="Explore Now" linkTo="/about-us" className="btn-primary" onClick={() => handleClick("", "authorsID")}/>
               </div>
               
               <Swiper modules={isMobile ? [Autoplay] : [Pagination, Autoplay]} pagination={!isMobile ? { clickable: true } : false} loop={true} slidesPerView={1} direction="vertical" 
@@ -105,9 +93,9 @@ function Home() {
                 ))}
                 
               </Swiper>
-            </section>
+      </section>
 
-            <section className="line_background">
+      <section className="line_background">
               <div className="line_mask">
 
                 {[3, 4, 5].map((index) => (
@@ -129,9 +117,9 @@ function Home() {
 
                 <p>Hurry up to the online sale of books with discounts up to 50% - your library is waiting for replenishment!</p>
               </div>
-            </section>
+      </section>
 
-            <section>
+      <section>
               <h2 className="section_title">Offers</h2>
 
               <div className="offers_container">
@@ -141,12 +129,12 @@ function Home() {
                   ))}
                 </div>
                 
-                <Button text="See More" className="btn-secondary" linkTo="/shop"/>
+                <Button text="See More" className="btn-secondary" linkTo="/shop" onClick={() => handleClick("/shop", "offersID")}/>
               </div>
-            </section>
+      </section>
 
-            <section>
-              <h2 className="section_title">Get to know</h2>
+      <section>
+              <h2 className="section_title" id='authorsID'>Get to know</h2>
 
               <div>
                 <hr className="author_background_line"/>
@@ -163,16 +151,8 @@ function Home() {
                   </Swiper>
                 </div>
               </div>
-            </section>
-
-          </main>
-        } />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        
-      </Routes>
-      <Footer />
-    </>
+      </section>
+    </main>
   )
 }
 

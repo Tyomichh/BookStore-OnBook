@@ -9,8 +9,10 @@ import './AboutUs.scss';
 
 
 function AboutUs() {
+  // Завантажує всі зображення з папки workers
   const images = import.meta.glob('../assets/workers/*.jpg', { eager: true });
 
+  // Використовується Object.keys для отримання шляхів зображень і метод map для створення масиву
   const workers = Object.keys(images).map((path, index) => ({
     name: 'Artem Lozenko',
     position: ['Founder and CEO', 'Content Manager', 'Designer', 'Developer'][index],
@@ -45,7 +47,7 @@ return (
       <section>
         <h2 className="section_title">Meet our team</h2>
 
-        <div className="about_card_wrapper">
+        <div className="section_card_wrapper">
           {workers.map((worker,i) => (
             <WorkerItem
               key={i}
