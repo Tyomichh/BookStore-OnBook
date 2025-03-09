@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 // 2. Компоненти
-import Button from "../Components/ButtonComponent";
-import BookCard from "../Components/BookCard";
-import { useScroll } from "../context/scrollProvider";
+import Button from "../Components/ButtonComponent.jsx";
+import BookCard from "../Components/BookCard.jsx";
+import { useScroll } from "../context/scrollProvider.jsx";
 // 3. Дані
 // 4. Стилі
 import "./Shop.scss";

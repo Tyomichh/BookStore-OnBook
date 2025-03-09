@@ -2,7 +2,7 @@
 import emailjs from 'emailjs-com';
 import { useState, useEffect, useRef } from 'react';
 // 2. Компоненти
-import { useScroll } from "../context/scrollProvider";
+import { useScroll } from "../context/scrollProvider.jsx";
 // 3. Дані
 // 4. Стилі
 import './Footer.scss';

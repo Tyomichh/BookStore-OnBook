@@ -1,9 +1,9 @@
 import {Router, Routes, Route } from "react-router-dom";
-import Navigation from "./Components/Navigation";
-import Footer from "./Components/Footer";
-import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
-import AboutUs from "./Pages/AboutUs";
+import Navigation from "./Components/Navigation.jsx";
+import Footer from "./Components/Footer.jsx";
+import Home from "./Pages/Home.jsx";
+import Shop from "./Pages/Shop.jsx";
+import AboutUs from "./Pages/AboutUs.jsx";
 import { useEffect, useState } from "react";
 
 function App() {

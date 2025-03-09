@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from "swiper/modules";
 import axios from 'axios';
 // 2. Компоненти
-import AuthorCard from '../Components/AuthorCard';
-import OffersItem from '../Components/OffersItem';
-import Button from '../Components/ButtonComponent';
-import BookItem from '../Components/BookItem';
-import { useScroll } from "../context/scrollProvider";
+import AuthorCard from '../Components/AuthorCard.jsx';
+import OffersItem from '../Components/OffersItem.jsx';
+import Button from '../Components/ButtonComponent.jsx';
+import BookItem from '../Components/BookItem.jsx';
+import { useScroll } from "../context/scrollProvider.jsx";
 // 3. Дані
-import authors from '../data/authorsData';
+import authors from '../data/authorsData.js';
 // 4. Стилі
 import './Home.scss';
 import 'swiper/css';
