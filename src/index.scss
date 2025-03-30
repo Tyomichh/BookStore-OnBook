@@ -1,15 +1,15 @@
 :root {
-  --body-background-color: #F1ECE1;
+  --body-background-color: #f1ece1;
   --body-background-50-color: #f1ece180;
   --graphite-100-color: #171717;
   --graphite-75-color: #171717bd;
   --graphite-50-color: #1717177c;
-  --section-background-color: #0C1220;
+  --section-background-color: #0c1220;
   --swiper-theme-color: #171717;
   --text-white-color: #ffffff;
   --text-white-50-color: #ffffff80;
-  --color-line-1: #91A3C6;
-  --color-line-2: #2A4164;
+  --color-line-1: #91a3c6;
+  --color-line-2: #2a4164;
   --color-line-3: #141929;
   --color-line-5: #252525;
 }
@@ -23,7 +23,7 @@
 }
 
 body {
-  font-family: 'Inria Serif', sans-serif;
+  font-family: "Inria Serif", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
@@ -34,15 +34,18 @@ body {
   padding: 0 20px;
 }
 
+/* Стилі для основних тегів */
+header,
+main,
+section {
+  margin-bottom: 150px;
+}
+
+/* Базові стилі для медіа та текстових елементів */
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Стилі для основних тегів */
-header, main, section {
-  margin-bottom: 150px;
 }
 
 p {
@@ -60,7 +63,7 @@ a {
 
 /* Компонентні стилі */
 button {
-  font-family: 'Inria Serif', sans-serif;
+  font-family: "Inria Serif", sans-serif;
   border: none;
 }
 
@@ -68,14 +71,14 @@ button {
 .section {
   &_wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     width: 100%;
 
     & > *:nth-child(2) {
-      justify-self: end; 
+      justify-self: end;
     }
-  } 
+  }
 
   &_title {
     font-size: 72px;
@@ -100,46 +103,46 @@ button {
 
 .button_add {
   width: 24px;
-      height: 24px;
-      background-color: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease-in-out;
-      &:hover {
-          transform: scale(1.2);
-        }
-    
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: var(--graphite-100-color);
-        transition: opacity 0.2s, transform 0.2s;
-      }
-    
-      &::before {
-        width: 14px;
-        height: 2px;
-      }
-    
-      &::after {
-        width: 2px;
-        height: 14px;
-      }
+  height: 24px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
 
-      &.added::before {
-        width: 10px;
-        height: 2px;
-        transform: rotate(45deg) translate(2px, 4px);
-      }
-    
-      &.added::after {
-        width: 16px;
-        height: 2px;
-        transform: rotate(-45deg) translate(4px, 6px);
-      }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--graphite-100-color);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  &::before {
+    width: 14px;
+    height: 2px;
+  }
+
+  &::after {
+    width: 2px;
+    height: 14px;
+  }
+
+  &.added::before {
+    width: 10px;
+    height: 2px;
+    transform: rotate(45deg) translate(2px, 4px);
+  }
+
+  &.added::after {
+    width: 16px;
+    height: 2px;
+    transform: rotate(-45deg) translate(4px, 6px);
+  }
 }
 
 .intro_box {
@@ -147,18 +150,109 @@ button {
   gap: 42px;
 }
 
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+
+  &-footer {
+    @extend .logo;
+    justify-self: center;
+  }
+}
+
+.error {
+  color: red;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.popup {
+  &_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--graphite-50-color);
+    z-index: 100;
+  }
+
+  &_form {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: #f1ece1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
+
+    & > button {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      rotate: 45deg;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--graphite-100-color);
+      }
+
+      &::before {
+        width: 14px;
+        height: 2px;
+      }
+
+      &::after {
+        width: 2px;
+        height: 14px;
+      }
+    }
+  }
+
+  &_number {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--body-background-color);
+    border-radius: 25px 25px;
+    font-size: 24px;
+    padding: 32px;
+    z-index: 1000;
+  }
+}
+
 @media (max-width: 1440px) {
   body {
-    max-width: 1024px; 
+    max-width: 1024px;
   }
 }
 
 @media (max-width: 1024px) {
   body {
-    max-width: 780px; 
+    max-width: 780px;
   }
 
-  header, main, section {
+  header,
+  main,
+  section {
     margin-bottom: 100px;
   }
 
@@ -172,7 +266,7 @@ button {
       justify-content: center;
 
       & > *:nth-child(2) {
-        justify-self: center; 
+        justify-self: center;
       }
 
       &:nth-of-type(3) > *:nth-child(1) {
@@ -199,15 +293,13 @@ button {
     &_card_wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      //row-gap: 88px;
     }
   }
-  
 }
 
 @media (max-width: 760px) {
   body {
-    max-width: 360px; 
+    max-width: 360px;
     font-size: 14px;
   }
 
@@ -215,13 +307,13 @@ button {
     &_wrapper {
       gap: 60px;
     }
-    
+
     &_title {
       font-size: 48px;
       margin-bottom: 32px;
       width: 100%;
     }
-    
+
     &_text {
       font-size: 14px;
     }
@@ -232,5 +324,20 @@ button {
       margin-top: 48px;
       row-gap: 32px;
     }
-  }  
+  }
+
+  .intro_box {
+    gap: 24px;
+  }
+
+  .popup {
+    &_number {
+      font-size: 16px;
+    }
+  }
+
+  .logo {
+    font-size: 28px;
+    justify-self: center;
+  }
 }

@@ -1,4 +1,4 @@
-// authorsData.js
+// База даних авторів
 const images = import.meta.glob('../assets/authors/*.jpg', { eager: true });
 
 const authors = [

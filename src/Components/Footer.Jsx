@@ -10,14 +10,14 @@ import './Footer.scss';
 function Footer() {
     // Скрол до елемента
     const { handleClick } = useScroll();
-    
-    // Змінна для зберігання значення email та помилки
+
+    // Змінні для зберігання значення email та помилки
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
     // Керування відображенням попапа
     const [NumberPopup, setNumberPopup] = useState(false);
-    const popupRef = useRef(null); 
+    const popupRef = useRef(null);
 
     // Відстеження стану блимання
     const [blink, setBlink] = useState(false);
@@ -50,7 +50,7 @@ function Footer() {
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Your message has been sent!');
-                setEmail(''); 
+                setEmail('');
             }, (err) => {
                 console.log('FAILED...', err);
                 alert('Failed to send the message, please try again.');
@@ -79,11 +79,10 @@ function Footer() {
 
     console.log("Footer is rendering");
 
-
     return (
         <footer className="footer">
             <div className="footer_nav">
-                <div className="footer_nav_links">
+                <div className="footer_nav_columns">
                     <div className="footer_column">
                         <h3 className="footer_column_title">Company</h3>
 
@@ -105,7 +104,7 @@ function Footer() {
 
                     <div className="footer_column">
                         <h3 className="footer_column_title">Follow us</h3>
-                        
+
                         <ul>
                             <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
                             <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
@@ -117,22 +116,22 @@ function Footer() {
                 <form className={`footer_form ${blink ? 'blink' : ''}`} action="#" onSubmit={SubmitEmail}>
                     <h3 className="footer_column_title">Contact us</h3>
 
-                    <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                    {error && <p className="error">{error}</p>}
+                    <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    {error && <p className="error">{error}</p>} {/* стилі до error в index.scss */}
                     <button type="submit">Send Email</button>
                 </form>
             </div>
 
-            <a href="#header" className="logo logo_footer" onClick={() => handleClick("", "headerID")} >On.Book</a>
+            <a href="#header" className="logo-footer" onClick={() => handleClick("", "headerID")} >On.Book</a> {/* стилі до logo в index.scss */}
 
             {NumberPopup && (
                 <>
-                    <div className="popup_overlay" onClick={() => setNumberPopup(false)}></div>
+                    <div className="popup_overlay" onClick={() => setNumberPopup(false)}></div> {/* стилі до popup в index.scss */}
 
                     <div className="popup_number" ref={popupRef}>
                         <p><b>Our contact number:</b> +098 012 65 79</p>
                     </div>
-                </>  
+                </>
             )}
         </footer>
     )

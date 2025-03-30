@@ -1,43 +1,42 @@
 .buttonComp_styles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 184px;
-    height: 52px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 184px;
+  height: 52px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
 
-    &:hover {
-        transform: scale(1.05);
-    }
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
-.btn{
+.btn {
+  &-primary {
+    justify-self: flex-start;
+    color: var(--text-white-color);
+    background-color: var(--graphite-100-color);
+    border: none;
+  }
 
-    &-primary {
-        justify-self: flex-start;
-        color: var(--text-white-color);
-        background-color: var(--graphite-100-color);
-        border: none;
-    }
-  
-    &-secondary {
-        justify-self: center;
-        margin-top: 42px;
-        color: var(--graphite-100-color);
-        background-color: transparent;
-        border: 1px solid var(--graphite-100-color);
-    }
+  &-secondary {
+    justify-self: center;
+    margin-top: 42px;
+    color: var(--graphite-100-color);
+    background-color: transparent;
+    border: 1px solid var(--graphite-100-color);
+  }
 }
-  
+
 @media (max-width: 1024px) {
-    .btn-primary {
-      justify-self: center;
-    }
+  .btn-primary {
+    justify-self: center;
+  }
 }
 
 @media (max-width: 760px) {
-    .btn-secondary {
-      margin-top: 24px;
-    }
+  .btn-secondary {
+    margin-top: 24px;
+  }
 }
